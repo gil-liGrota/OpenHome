@@ -1,0 +1,1 @@
+ACTIVITY_LIST = ["none", "sleep", "dinner", "laundry", "play time"]
