@@ -2,8 +2,6 @@ class User:
     name = ""
     phone = ""
     address = ""
-    gender = ""
-    is_hosting = False
     allergies = ""
     is_vegan = False
     is_vegetarian = False
@@ -14,8 +12,6 @@ class User:
         self.name = name
         self.phone = phone
         self.address = address
-        self.gender = gender
-        self.is_hosting = is_hosting
         self.allergies = allergies
         self.is_vegan = is_vegan
         self.is_vegetarian = is_vegetarian
