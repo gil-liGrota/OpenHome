@@ -37,17 +37,17 @@ def open_manage_requests_screen(activity_doc_id, refresh_callback=None):
     win = tk.Toplevel()
     win.title("Manage Activity Requests")
     win.geometry("480x520")
-    win.configure(bg="#f0f4f8")
+    win.configure(bg="#9AF075")
 
     tk.Label(
         win,
         text="Guests & Requests Status",
         font=("Arial", 14, "bold"),
-        bg="#f0f4f8",
+        bg="#9AF075",
         fg="#1a365d"
     ).pack(pady=15)
 
-    list_frame = tk.Frame(win, bg="#f0f4f8")
+    list_frame = tk.Frame(win, bg="#9AF075")
     list_frame.pack(fill="both", expand=True, padx=20, pady=10)
 
     def load_requests():
@@ -148,11 +148,11 @@ def open_manage_requests_screen(activity_doc_id, refresh_callback=None):
         if action == "approve":
             if guest_name not in approved_list:
                 approved_list.append(guest_name)
-            messagebox.showinfo("Success", f"{guest_name} approved!")
+            # messagebox.showinfo("Success", f"{guest_name} approved!")
         elif action == "reject":
             if guest_name not in rejected_list:
                 rejected_list.append(guest_name)
-            messagebox.showinfo("Notice", f"{guest_name} was set to Rejected.")
+            # messagebox.showinfo("Notice", f"{guest_name} was set to Rejected.")
 
         doc_ref.update({
             "pending_guests": pending_list,

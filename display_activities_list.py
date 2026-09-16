@@ -51,26 +51,26 @@ def open_print_list_screen(items_list):
     window = tk.Tk()
     window.title("Open Home")
     window.geometry("580x520")
-    window.configure(bg="#f0f4f8")
+    window.configure(bg="#9AF075")
 
-    header_frame = tk.Frame(window, bg="#f0f4f8")
+    header_frame = tk.Frame(window, bg="#9AF075")
     header_frame.pack(fill="x", padx=20, pady=10)
 
     title_label = tk.Label(
         header_frame,
         text="Open Activities",
         font=("Arial", 16, "bold"),
-        bg="#f0f4f8",
+        bg="#9AF075",
         fg="#1a365d"
     )
     title_label.pack(side="left")
 
-    container = tk.Frame(window, bg="#f0f4f8")
+    container = tk.Frame(window, bg="#9AF075")
     container.pack(fill="both", expand=True, padx=20, pady=10)
 
-    canvas = tk.Canvas(container, bg="#f0f4f8", highlightthickness=0)
+    canvas = tk.Canvas(container, bg="#9AF075", highlightthickness=0)
     scrollbar = ttk.Scrollbar(container, orient="vertical", command=canvas.yview)
-    scrollable_frame = tk.Frame(canvas, bg="#f0f4f8")
+    scrollable_frame = tk.Frame(canvas, bg="#9AF075")
 
     scrollable_frame.bind(
         "<Configure>",
@@ -108,7 +108,7 @@ def open_print_list_screen(items_list):
             pending_list.append(guest_name)
             doc_ref.update({"pending_guests": pending_list})
 
-            messagebox.showinfo("Success", "Request sent! Status: Pending")
+            # messagebox.showinfo("Success", "Request sent! Status: Pending")
             fetch_and_reload_all()
 
     def populate_list(current_items):
@@ -120,7 +120,7 @@ def open_print_list_screen(items_list):
                 scrollable_frame,
                 text="No activities available.",
                 font=("Arial", 11, "italic"),
-                bg="#f0f4f8",
+                bg="#9AF075",
                 fg="#718096"
             ).pack(pady=20)
             return
@@ -128,7 +128,7 @@ def open_print_list_screen(items_list):
         current_user_name = enter_screen.user.name if hasattr(enter_screen, 'user') and enter_screen.user else ""
 
         for item in current_items:
-            card = tk.Frame(scrollable_frame, bg="white", bd=1, relief="solid", padx=15, pady=10)
+            card = tk.Frame(scrollable_frame, bg="#EDEBC2", bd=1, relief="solid", padx=15, pady=10)
             card.pack(fill="x", expand=True, pady=8)
 
             act_type = item.get("type of activity", "N/A")
@@ -147,11 +147,11 @@ def open_print_list_screen(items_list):
                 card,
                 text=details_text,
                 font=("Arial", 10),
-                bg="white",
+                bg="#EDEBC2",
                 justify="left"
             ).pack(side="left")
 
-            buttons_frame = tk.Frame(card, bg="white")
+            buttons_frame = tk.Frame(card, bg="#EDEBC2")
             buttons_frame.pack(side="right", padx=5)
 
             if hasattr(enter_screen, 'user') and isinstance(enter_screen.user, Guest):

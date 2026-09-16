@@ -67,13 +67,13 @@ def open_login_screen():
     login_window = tk.Tk()
     login_window.title("Open Home")
     login_window.geometry("400x300")
-    login_window.configure(bg="#f0f4f8")
+    login_window.configure(bg="#9AF075")
 
     tk.Label(
         login_window,
         text="Log In",
         font=("Arial", 18, "bold"),
-        bg="#f0f4f8",
+        bg="#9AF075",
         fg="#1a365d"
     ).pack(pady=(30, 20))
 
@@ -81,7 +81,7 @@ def open_login_screen():
         login_window,
         text="Username:",
         font=("Arial", 10, "bold"),
-        bg="#f0f4f8",
+        bg="#9AF075",
         fg="#4a5568"
     ).pack(anchor="w", padx=60, pady=(5, 2))
 
@@ -96,9 +96,9 @@ def open_login_screen():
         login_window,
         text="Submit",
         font=("Arial", 11, "bold"),
-        bg="#2b6cb0",
+        bg="#588F3F",
         fg="white",
-        activebackground="#2c5282",
+        activebackground="#588F3F",
         activeforeground="white",
         width=15,
         height=1,

@@ -9,17 +9,17 @@ def open_add_activity_screen(refresh_callback=None):
     add_window = tk.Toplevel()
     add_window.title("Add New Activity")
     add_window.geometry("350x420")
-    add_window.configure(bg="#f0f4f8")
+    add_window.configure(bg="#9AF075")
 
     tk.Label(
         add_window,
         text="Create New Activity",
         font=("Arial", 14, "bold"),
-        bg="#f0f4f8",
+        bg="#9AF075",
         fg="#1a365d"
     ).pack(pady=15)
 
-    tk.Label(add_window, text="Activity Type:", font=("Arial", 10, "bold"), bg="#f0f4f8").pack(anchor="w", padx=40)
+    tk.Label(add_window, text="Activity Type:", font=("Arial", 10, "bold"), bg="#9AF075").pack(anchor="w", padx=40)
 
     selected_activity = tk.StringVar(value=activity_constant.ACTIVITY_LIST[0])
 
@@ -31,12 +31,12 @@ def open_add_activity_screen(refresh_callback=None):
     activity_dropdown.config(font=("Arial", 10), width=22, bg="white", highlightthickness=0)
     activity_dropdown.pack(pady=5)
 
-    tk.Label(add_window, text="Amount of People:", font=("Arial", 10, "bold"), bg="#f0f4f8").pack(anchor="w", padx=40,
+    tk.Label(add_window, text="Amount of People:", font=("Arial", 10, "bold"), bg="#9AF075").pack(anchor="w", padx=40,
                                                                                                   pady=(10, 0))
     amount_entry = tk.Entry(add_window, font=("Arial", 11), width=25)
     amount_entry.pack(pady=5)
 
-    tk.Label(add_window, text="Date (e.g. 22/11/2026):", font=("Arial", 10, "bold"), bg="#f0f4f8").pack(anchor="w",
+    tk.Label(add_window, text="Date (e.g. 22/11/2026):", font=("Arial", 10, "bold"), bg="#9AF075").pack(anchor="w",
                                                                                                         padx=40,
                                                                                                         pady=(10, 0))
     date_entry = tk.Entry(add_window, font=("Arial", 11), width=25)
@@ -76,7 +76,7 @@ def open_add_activity_screen(refresh_callback=None):
         add_window,
         text="Save Activity",
         font=("Arial", 11, "bold"),
-        bg="#319795",
+        bg="#588F3F",
         fg="white",
         width=15,
         bd=0,
