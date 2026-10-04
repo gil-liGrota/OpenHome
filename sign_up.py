@@ -1,11 +1,14 @@
 import tkinter as tk
-from tkinter import ttk, messagebox
-from guest import Guest
-from host import Host
+from tkinter import messagebox, ttk
+
+from customtkinter import *  # type: ignore
+
 import enter_screen
 from db_config import db
 from display_activities_list import open_print_list_screen
-from customtkinter import *
+from guest import Guest
+from host import Host
+
 
 def get_doc_names(collection_name):
     docs = db.collection(collection_name).stream()

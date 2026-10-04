@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+
 from db_config import db
 
 
@@ -30,7 +31,7 @@ def open_guest_info_popup(guest_name):
         f"Bio: {bio}"
     )
 
-    messagebox.showinfo(f"Guest Info", info_text)
+    messagebox.showinfo("Guest Info", info_text)
 
 
 def open_manage_requests_screen(activity_doc_id, refresh_callback=None):
