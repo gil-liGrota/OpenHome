@@ -1,10 +1,13 @@
 import tkinter as tk
-from tkinter import ttk, messagebox
-from guest import Guest
-from host import Host
+from tkinter import messagebox, ttk
+
+from customtkinter import *  # type: ignore
+
 import enter_screen
 from db_config import db
 from display_activities_list import open_print_list_screen
+from guest import Guest
+from host import Host
 
 
 def get_doc_names(collection_name):
@@ -18,12 +21,12 @@ def open_signup_screen():
     signup_window.geometry("500x650")
     signup_window.configure(bg="#f0f4f8")
 
-    main_frame = tk.Frame(signup_window, bg="#f0f4f8")
+    main_frame = tk.Frame(signup_window, bg=activity_constant.BG_COLOR)
     main_frame.pack(fill="both", expand=True)
 
-    canvas = tk.Canvas(main_frame, bg="#f0f4f8", highlightthickness=0)
+    canvas = tk.Canvas(main_frame, bg=activity_constant.BG_COLOR, highlightthickness=0)
     scrollbar = ttk.Scrollbar(main_frame, orient="vertical", command=canvas.yview)
-    scrollable_frame = tk.Frame(canvas, bg="#f0f4f8")
+    scrollable_frame = tk.Frame(canvas, bg=activity_constant.BG_COLOR)
 
     scrollable_frame.bind(
         "<Configure>",
@@ -33,19 +36,19 @@ def open_signup_screen():
     canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
     canvas.configure(yscrollcommand=scrollbar.set)
 
-    canvas.pack(side="left", fill="both", expand=True, padx=20)
-    scrollbar.pack(side="right", fill="y")
+    canvas.pack(fill="both", expand=True, padx=20)
+    scrollbar.pack(fill="y")
 
     tk.Label(
         scrollable_frame,
         text="Create Your Account",
         font=("Arial", 18, "bold"),
-        bg="#f0f4f8",
+        bg=activity_constant.BG_COLOR,
         fg="#1a365d"
     ).pack(pady=(20, 15))
 
     def create_entry_field(label_text):
-        tk.Label(scrollable_frame, text=label_text, font=("Arial", 10, "bold"), bg="#f0f4f8", fg="#4a5568").pack(
+        tk.Label(scrollable_frame, text=label_text, font=("Arial", 10, "bold"), bg=activity_constant.BG_COLOR, fg="#4a5568").pack(
             anchor="w", pady=(8, 2))
         entry = tk.Entry(scrollable_frame, font=("Arial", 11), width=35)
         entry.pack(anchor="w", pady=(0, 5))
@@ -56,29 +59,29 @@ def open_signup_screen():
     address_entry = create_entry_field("Address:")
     allergies_entry = create_entry_field("Allergies:")
 
-    tk.Label(scrollable_frame, text="Preferences:", font=("Arial", 10, "bold"), bg="#f0f4f8", fg="#4a5568").pack(
+    tk.Label(scrollable_frame, text="Preferences:", font=("Arial", 10, "bold"), bg=activity_constant.BG_COLOR, fg="#4a5568").pack(
         anchor="w", pady=(10, 2))
 
     is_vegetarian = tk.BooleanVar()
     is_vegan = tk.BooleanVar()
     is_religious = tk.BooleanVar()
 
-    tk.Checkbutton(scrollable_frame, text="Vegetarian", variable=is_vegetarian, bg="#f0f4f8", font=("Arial", 10)).pack(
+    tk.Checkbutton(scrollable_frame, text="Vegetarian", variable=is_vegetarian, bg=activity_constant.BG_COLOR, font=("Arial", 10)).pack(
         anchor="w")
-    tk.Checkbutton(scrollable_frame, text="Vegan", variable=is_vegan, bg="#f0f4f8", font=("Arial", 10)).pack(anchor="w")
-    tk.Checkbutton(scrollable_frame, text="Religious", variable=is_religious, bg="#f0f4f8", font=("Arial", 10)).pack(
+    tk.Checkbutton(scrollable_frame, text="Vegan", variable=is_vegan, bg=activity_constant.BG_COLOR, font=("Arial", 10)).pack(anchor="w")
+    tk.Checkbutton(scrollable_frame, text="Religious", variable=is_religious, bg=activity_constant.BG_COLOR, font=("Arial", 10)).pack(
         anchor="w")
 
-    tk.Label(scrollable_frame, text="Role:", font=("Arial", 10, "bold"), bg="#f0f4f8", fg="#4a5568").pack(anchor="w",
+    tk.Label(scrollable_frame, text="Role:", font=("Arial", 10, "bold"), bg=activity_constant.BG_COLOR, fg="#4a5568").pack(anchor="w",
                                                                                                           pady=(12, 2))
 
     role_var = tk.StringVar(value="Guest")
-    tk.Radiobutton(scrollable_frame, text="Guest", variable=role_var, value="Guest", bg="#f0f4f8",
+    tk.Radiobutton(scrollable_frame, text="Guest", variable=role_var, value="Guest", bg=activity_constant.BG_COLOR,
                    font=("Arial", 10)).pack(anchor="w")
-    tk.Radiobutton(scrollable_frame, text="Host", variable=role_var, value="Host", bg="#f0f4f8",
+    tk.Radiobutton(scrollable_frame, text="Host", variable=role_var, value="Host", bg=activity_constant.BG_COLOR,
                    font=("Arial", 10)).pack(anchor="w")
 
-    tk.Label(scrollable_frame, text="Bio:", font=("Arial", 10, "bold"), bg="#f0f4f8", fg="#4a5568").pack(anchor="w",
+    tk.Label(scrollable_frame, text="Bio:", font=("Arial", 10, "bold"), bg=activity_constant.BG_COLOR, fg="#4a5568").pack(anchor="w",
                                                                                                          pady=(12, 2))
     bio_text = tk.Text(scrollable_frame, font=("Arial", 10), width=35, height=4)
     bio_text.pack(anchor="w", pady=(0, 10))
@@ -127,7 +130,7 @@ def open_signup_screen():
                 act_data['doc_id'] = doc.id
                 activities_list.append(act_data)
 
-            messagebox.showinfo("Success", f"{selected_role} registered successfully!")
+            # messagebox.showinfo("Success", f"{selected_role} registered successfully!")
             signup_window.destroy()
 
             open_print_list_screen(activities_list)
@@ -146,7 +149,7 @@ def open_signup_screen():
 
             enter_screen.user = new_user
 
-            messagebox.showinfo("Success", f"{selected_role} registered successfully!")
+            # messagebox.showinfo("Success", f"{selected_role} registered successfully!")
             signup_window.destroy()
 
             open_print_list_screen([])
@@ -155,9 +158,9 @@ def open_signup_screen():
         scrollable_frame,
         text="Register",
         font=("Arial", 11, "bold"),
-        bg="#319795",
+        bg=activity_constant.COLOR,
         fg="white",
-        activebackground="#2c7a7b",
+        activebackground=activity_constant.COLOR,
         activeforeground="white",
         width=18,
         height=2,
@@ -166,5 +169,6 @@ def open_signup_screen():
         command=submit_signup
     )
     submit_btn.pack(pady=20)
+
 
     signup_window.mainloop()

@@ -1,22 +1,28 @@
 import tkinter as tk
+
+import activity_constant
+from activity_constant import BG_COLOR
 from sign_up import open_signup_screen
 from log_in import open_login_screen
+from PIL import Image, ImageTk
 
 global user
+
 
 def create_welcome_screen():
     root = tk.Tk()
     root.title("Open Home - Welcome")
     root.geometry("450x400")
-    root.configure(bg="#f0f4f8")
+    root.configure(bg=activity_constant.BG_COLOR)
 
-    tk.Frame(root, bg="#f0f4f8", height=40).pack()
+
+
 
     welcome_label = tk.Label(
         root,
         text="Welcome to - Open Home",
         font=("Arial", 20, "bold"),
-        bg="#f0f4f8",
+        bg=activity_constant.BG_COLOR,
         fg="#1a365d"
     )
     welcome_label.pack(pady=10)
@@ -25,11 +31,12 @@ def create_welcome_screen():
         root,
         text="Please log in or sign up to continue",
         font=("Arial", 11),
-        bg="#f0f4f8",
+        bg=activity_constant.BG_COLOR,
         fg="#4a5568"
     )
-    subtitle_label.pack(pady=5)
 
+
+    tk.Frame(root, bg=activity_constant.BG_COLOR, height=40).pack()
     def on_login():
         root.destroy()
         open_login_screen()
@@ -42,9 +49,9 @@ def create_welcome_screen():
         root,
         text="Log In",
         font=("Arial", 12, "bold"),
-        bg="#2b6cb0",
+        bg=activity_constant.COLOR,
         fg="white",
-        activebackground="#2c5282",
+        activebackground=activity_constant.COLOR,
         activeforeground="white",
         width=18,
         height=2,
@@ -58,9 +65,9 @@ def create_welcome_screen():
         root,
         text="Sign Up",
         font=("Arial", 12, "bold"),
-        bg="#319795",
+        bg=activity_constant.COLOR,
         fg="white",
-        activebackground="#2c7a7b",
+        activebackground=activity_constant.COLOR,
         activeforeground="white",
         width=18,
         height=2,
