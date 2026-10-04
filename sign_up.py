@@ -18,12 +18,12 @@ def open_signup_screen():
     signup_window.geometry("500x650")
     signup_window.configure(bg="#f0f4f8")
 
-    main_frame = tk.Frame(signup_window, bg="#9AF075")
+    main_frame = tk.Frame(signup_window, bg=activity_constant.BG_COLOR)
     main_frame.pack(fill="both", expand=True)
 
-    canvas = tk.Canvas(main_frame, bg="#9AF075", highlightthickness=0)
+    canvas = tk.Canvas(main_frame, bg=activity_constant.BG_COLOR, highlightthickness=0)
     scrollbar = ttk.Scrollbar(main_frame, orient="vertical", command=canvas.yview)
-    scrollable_frame = tk.Frame(canvas, bg="#9AF075")
+    scrollable_frame = tk.Frame(canvas, bg=activity_constant.BG_COLOR)
 
     scrollable_frame.bind(
         "<Configure>",
@@ -40,12 +40,12 @@ def open_signup_screen():
         scrollable_frame,
         text="Create Your Account",
         font=("Arial", 18, "bold"),
-        bg="#9AF075",
+        bg=activity_constant.BG_COLOR,
         fg="#1a365d"
     ).pack(pady=(20, 15))
 
     def create_entry_field(label_text):
-        tk.Label(scrollable_frame, text=label_text, font=("Arial", 10, "bold"), bg="#9AF075", fg="#4a5568").pack(
+        tk.Label(scrollable_frame, text=label_text, font=("Arial", 10, "bold"), bg=activity_constant.BG_COLOR, fg="#4a5568").pack(
             anchor="w", pady=(8, 2))
         entry = tk.Entry(scrollable_frame, font=("Arial", 11), width=35)
         entry.pack(anchor="w", pady=(0, 5))
@@ -56,29 +56,29 @@ def open_signup_screen():
     address_entry = create_entry_field("Address:")
     allergies_entry = create_entry_field("Allergies:")
 
-    tk.Label(scrollable_frame, text="Preferences:", font=("Arial", 10, "bold"), bg="#9AF075", fg="#4a5568").pack(
+    tk.Label(scrollable_frame, text="Preferences:", font=("Arial", 10, "bold"), bg=activity_constant.BG_COLOR, fg="#4a5568").pack(
         anchor="w", pady=(10, 2))
 
     is_vegetarian = tk.BooleanVar()
     is_vegan = tk.BooleanVar()
     is_religious = tk.BooleanVar()
 
-    tk.Checkbutton(scrollable_frame, text="Vegetarian", variable=is_vegetarian, bg="#9AF075", font=("Arial", 10)).pack(
+    tk.Checkbutton(scrollable_frame, text="Vegetarian", variable=is_vegetarian, bg=activity_constant.BG_COLOR, font=("Arial", 10)).pack(
         anchor="w")
-    tk.Checkbutton(scrollable_frame, text="Vegan", variable=is_vegan, bg="#9AF075", font=("Arial", 10)).pack(anchor="w")
-    tk.Checkbutton(scrollable_frame, text="Religious", variable=is_religious, bg="#9AF075", font=("Arial", 10)).pack(
+    tk.Checkbutton(scrollable_frame, text="Vegan", variable=is_vegan, bg=activity_constant.BG_COLOR, font=("Arial", 10)).pack(anchor="w")
+    tk.Checkbutton(scrollable_frame, text="Religious", variable=is_religious, bg=activity_constant.BG_COLOR, font=("Arial", 10)).pack(
         anchor="w")
 
-    tk.Label(scrollable_frame, text="Role:", font=("Arial", 10, "bold"), bg="#9AF075", fg="#4a5568").pack(anchor="w",
+    tk.Label(scrollable_frame, text="Role:", font=("Arial", 10, "bold"), bg=activity_constant.BG_COLOR, fg="#4a5568").pack(anchor="w",
                                                                                                           pady=(12, 2))
 
     role_var = tk.StringVar(value="Guest")
-    tk.Radiobutton(scrollable_frame, text="Guest", variable=role_var, value="Guest", bg="#9AF075",
+    tk.Radiobutton(scrollable_frame, text="Guest", variable=role_var, value="Guest", bg=activity_constant.BG_COLOR,
                    font=("Arial", 10)).pack(anchor="w")
-    tk.Radiobutton(scrollable_frame, text="Host", variable=role_var, value="Host", bg="#9AF075",
+    tk.Radiobutton(scrollable_frame, text="Host", variable=role_var, value="Host", bg=activity_constant.BG_COLOR,
                    font=("Arial", 10)).pack(anchor="w")
 
-    tk.Label(scrollable_frame, text="Bio:", font=("Arial", 10, "bold"), bg="#9AF075", fg="#4a5568").pack(anchor="w",
+    tk.Label(scrollable_frame, text="Bio:", font=("Arial", 10, "bold"), bg=activity_constant.BG_COLOR, fg="#4a5568").pack(anchor="w",
                                                                                                          pady=(12, 2))
     bio_text = tk.Text(scrollable_frame, font=("Arial", 10), width=35, height=4)
     bio_text.pack(anchor="w", pady=(0, 10))
@@ -155,9 +155,9 @@ def open_signup_screen():
         scrollable_frame,
         text="Register",
         font=("Arial", 11, "bold"),
-        bg="#588F3F",
+        bg=activity_constant.COLOR,
         fg="white",
-        activebackground="#588F3F",
+        activebackground=activity_constant.COLOR,
         activeforeground="white",
         width=18,
         height=2,

@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
+import activity_constant
 from db_config import db
 import enter_screen
 from guest import Guest
@@ -67,13 +68,13 @@ def open_login_screen():
     login_window = tk.Tk()
     login_window.title("Open Home")
     login_window.geometry("400x300")
-    login_window.configure(bg="#9AF075")
+    login_window.configure(bg=activity_constant.BG_COLOR)
 
     tk.Label(
         login_window,
         text="Log In",
         font=("Arial", 18, "bold"),
-        bg="#9AF075",
+        bg=activity_constant.BG_COLOR,
         fg="#1a365d"
     ).pack(pady=(30, 20))
 
@@ -81,7 +82,7 @@ def open_login_screen():
         login_window,
         text="Username:",
         font=("Arial", 10, "bold"),
-        bg="#9AF075",
+        bg=activity_constant.BG_COLOR,
         fg="#4a5568"
     ).pack(anchor="w", padx=60, pady=(5, 2))
 
@@ -96,9 +97,9 @@ def open_login_screen():
         login_window,
         text="Submit",
         font=("Arial", 11, "bold"),
-        bg="#588F3F",
+        bg=activity_constant.COLOR,
         fg="white",
-        activebackground="#588F3F",
+        activebackground=activity_constant.COLOR,
         activeforeground="white",
         width=15,
         height=1,
